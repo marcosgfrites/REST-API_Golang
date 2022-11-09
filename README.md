@@ -13,4 +13,29 @@ _This application has been builded following this [udemy course](https://www.ude
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/)
 
-##
+## Required Dependencies
+
+```bash
+$ go get go.mongodb.org/mongo-driver/mongo
+```
+```bash
+$ go get go.mongodb.org/mongo-driver/mongo/options
+```
+```bash
+$ go get go.mongodb.org/mongo-driver/bson
+```
+```bash
+$ go get go.mongodb.org/mongo-driver/bson/primitive
+```
+```bash
+$ go get golang.org/x/crypto/bcrypt
+```
+```bash
+$ go get github.com/gorilla/mux
+```
+```bash
+$ go get github.com/rs/cors
+```
+```bash
+$ go get github.com/dgrijalva/jwt-go
+```
