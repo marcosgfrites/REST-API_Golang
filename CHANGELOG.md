@@ -3,6 +3,8 @@
 ## [Unreleased]
 
 ### X.X.X | DD-MM-YYYY
+- add routers
+- add user model
 - add middlewares
 
 ## [Released]

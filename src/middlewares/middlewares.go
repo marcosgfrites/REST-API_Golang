@@ -2,6 +2,7 @@ package middlewares
 
 import (
 	"github.com/marcosgfrites/REST-API_Golang/src/databases"
+	"github.com/marcosgfrites/REST-API_Golang/src/utils/common"
 	"net/http"
 )
 
@@ -9,7 +10,7 @@ import (
 func CheckDatabase(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if databases.ConnectionCheck() == 0 {
-			http.Error(w, "Database connection has been lost", http.StatusInternalServerError)
+			http.Error(w, common.DatabaseConnectionLost, http.StatusInternalServerError)
 			return
 		}
 
