@@ -2,7 +2,8 @@
 
 ## [Unreleased]
 
-### X.X.X | DD-MM-YYYY
+### X.X.X | dd-MM-yyyy
+- add feature to register new users
 - add routers
 - add user model
 - add middlewares

@@ -2,6 +2,8 @@ package routers
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/marcosgfrites/REST-API_Golang/src/databases"
 	"github.com/marcosgfrites/REST-API_Golang/src/models"
 	"github.com/marcosgfrites/REST-API_Golang/src/utils/common"
 	"net/http"
@@ -12,7 +14,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	newUser := models.User{}
 	err := json.NewDecoder(r.Body).Decode(&newUser)
 	if err != nil {
-		http.Error(w, common.RegisterError+err.Error(), http.StatusBadRequest)
+		http.Error(w, fmt.Sprintf("%s%v", common.RegisterError, err.Error()), http.StatusBadRequest)
 		return
 	}
 
@@ -28,15 +30,15 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, foundedUser, _ := database.UserAlreadyExists(newUser.Email)
+	_, foundedUser, _ := databases.UserAlreadyExists(newUser.Email)
 	if foundedUser == true {
 		http.Error(w, common.UserAlreadyExists, http.StatusBadRequest)
 		return
 	}
 
-	_, status, err := database.UserSave(newUser)
+	_, status, err := databases.UserSave(newUser)
 	if err != nil {
-		http.Error(w, common.UserSaveError+err.Error(), http.StatusBadRequest)
+		http.Error(w, fmt.Sprintf("%s%v", common.UserSaveError, err.Error()), http.StatusBadRequest)
 		return
 	}
 

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/marcosgfrites/REST-API_Golang/src/middlewares"
 	"github.com/marcosgfrites/REST-API_Golang/src/routers"
@@ -25,5 +26,5 @@ func Handlers() {
 	//TODO: this permission will be changed. Now it allows all access
 	handler := cors.AllowAll().Handler(router)
 
-	log.Fatal(http.ListenAndServe(":"+port, handler))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), handler))
 }
