@@ -3,6 +3,7 @@ package databases
 import (
 	"context"
 	"fmt"
+	"github.com/marcosgfrites/REST-API_Golang/src/utils/common"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
@@ -28,7 +29,7 @@ func ConnectToDB() *mongo.Client {
 		return client
 	}
 
-	log.Println("The connection to the database is successful")
+	log.Println(common.DatabaseConnectionSuccessful)
 	return client
 }
 
@@ -42,7 +43,8 @@ func ConnectionCheck() int {
 	return 1
 }
 
+// getURLConnectionFromEnv is a private function to get the URL connection by environment variable
 func getURLConnectionFromEnv() string {
-	databaseURL := fmt.Sprintf("mongodb+srv://marcosdetti:%s@rest-api-golang-mgfd.do6n5si.mongodb.net/test", os.Getenv("MONGODB_PASSWORD"))
+	databaseURL := fmt.Sprintf("mongodb+srv://%s:%s@%s", os.Getenv("MONGODB_USER"), os.Getenv("MONGODB_PASSWORD"), os.Getenv("MONGODB_API"))
 	return databaseURL
 }
