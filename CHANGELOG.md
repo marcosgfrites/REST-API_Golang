@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-### X.X.X | dd-MM-yyyy
+### 0.0.2 | 23-12-2022
 - add feature to register new users
 - add routers
 - add user model
